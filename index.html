@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioLux Built | Premium WPC Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Josefin+Sans:wght@300;400;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --carbon: #1A1A1A;
+            --carbon-light: #2A2A2A;
+            --graphite: #3A3A3A;
+            --steel: #6A6A6A;
+            --silver: #9A9A9A;
+            --platinum: #C8C8C8;
+            --white: #FFFFFF;
+            --gold: #C9B896;
+            --gold-dark: #A69872;
+            --teak: #8B6F4A;
+            --walnut: #5C4A3A;
+            --charcoal-product: #4A4A4A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--carbon);
+            color: var(--platinum);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+        h4, h5, h6, .subhead { font-family: 'Rajdhani', sans-serif; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            border-bottom: 1px solid var(--graphite);
+        }
+
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
+        .logo-mark { width: 36px; height: 36px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; }
+        .logo-mark .piece { border-radius: 1px; }
+        .logo-mark .piece-1 { background: var(--steel); }
+        .logo-mark .piece-2 { background: var(--gold); }
+        .logo-mark .piece-3 { background: var(--silver); }
+        .logo-mark .piece-4 { background: var(--graphite); }
+        .logo-text { display: flex; flex-direction: column; line-height: 1; }
+        .logo-biolux { font-family: 'Josefin Sans', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 0.15em; display: flex; }
+        .logo-biolux .bio { font-weight: 700; color: var(--white); }
+        .logo-biolux .lux { font-weight: 300; color: var(--gold); }
+        .logo-built { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.4em; color: var(--silver); margin-top: 2px; }
+
+        .nav-center { display: flex; gap: 40px; list-style: none; }
+        .nav-center a { text-decoration: none; color: var(--silver); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s; cursor: pointer; }
+        .nav-center a:hover, .nav-center a.active { color: var(--white); }
+        
+        .nav-right { display: flex; align-items: center; gap: 24px; }
+        .nav-phone { color: var(--silver); text-decoration: none; font-size: 12px; letter-spacing: 0.05em; }
+        .nav-cta { background: transparent; color: var(--gold); padding: 12px 24px; text-decoration: none; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s; border: 1px solid var(--gold); }
+        .nav-cta:hover { background: var(--gold); color: var(--carbon); }
+
+        .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; }
+        .hamburger span { display: block; width: 100%; height: 1px; background: var(--silver); transition: all 0.3s; }
+
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--carbon); padding: 24px; z-index: 999; border-bottom: 1px solid var(--graphite); }
+        .mobile-menu.active { display: block; }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { border-bottom: 1px solid var(--graphite); }
+        .mobile-menu a { display: block; padding: 16px 0; color: var(--silver); text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+
+        /* Page */
+        .page { display: none; padding-top: 70px; }
+        .page.active { display: block; }
+
+        /* Buttons */
+        .btn-primary { background: var(--gold); color: var(--carbon); padding: 18px 36px; border: none; font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+        .btn-primary:hover { background: var(--gold-dark); }
+        .btn-outline { background: transparent; color: var(--white); padding: 18px 36px; border: 1px solid var(--white); font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+        .btn-outline:hover { background: var(--white); color: var(--carbon); }
+
+        /* Hero - Full Bleed */
+        .hero-full {
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .hero-full::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.7) 40%, rgba(26,26,26,0.3) 70%, transparent 100%);
+        }
+        
+        /* Hero - Textured Background (60% overlay) */
+        .hero-textured {
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .hero-textured::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26,26,26,0.6);
+        }
+        .hero-full .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-content {
+            max-width: 600px;
+        }
+        .hero-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: block; }
+        .hero-title { font-size: clamp(40px, 5vw, 62px); color: var(--white); margin-bottom: 24px; line-height: 1.05; }
+        .hero-subtitle { font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 300; color: var(--platinum); line-height: 1.9; margin-bottom: 40px; letter-spacing: 0.02em; }
+        .hero-buttons { display: flex; gap: 16px; }
+
+        /* Hero Split (for pages without full bleed image) */
+        .hero-split { display: grid; grid-template-columns: 1fr 1.2fr; min-height: 100vh; }
+        .hero-content-side { display: flex; flex-direction: column; justify-content: center; padding: 100px 80px; background: var(--carbon); }
+        .hero-image-side { background-size: cover; background-position: center; position: relative; }
+        .hero-image-side::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--carbon) 0%, transparent 30%); }
+
+        /* Stats Bar */
+        .stats-bar { display: flex; gap: 48px; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--graphite); }
+        .stat-item { }
+        .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--white); line-height: 1; }
+        .stat-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 400; color: var(--steel); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 8px; }
+
+        /* Section */
+        .section { padding: 120px 0; position: relative; }
+        .section-dark { background: var(--carbon); }
+        .section-medium { background: var(--carbon-light); }
+        .section-header { margin-bottom: 60px; }
+        .section-header.center { text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .section-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+        .section-title { font-size: clamp(36px, 4vw, 52px); color: var(--white); margin-bottom: 20px; line-height: 1.05; }
+        .section-subtitle { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 300; color: var(--silver); letter-spacing: 0.05em; line-height: 1.9; }
+
+        /* Category Grid */
+        .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+        .category-card { background: var(--carbon-light); overflow: hidden; transition: all 0.4s; cursor: pointer; position: relative; }
+        .category-card:hover { background: var(--graphite); }
+        .category-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.4s; }
+        .category-card:hover::after { width: 100%; }
+        .category-image { height: 320px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; position: relative; }
+        .category-image::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--carbon-light) 0%, transparent 50%); }
+        .category-badge { position: absolute; top: 20px; left: 20px; background: var(--gold); color: var(--carbon); padding: 8px 14px; font-family: 'Rajdhani', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; z-index: 2; }
+        .category-info { padding: 36px; }
+        .category-info h3 { font-size: 26px; color: var(--white); margin-bottom: 12px; }
+        .category-info p { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 300; color: var(--silver); margin-bottom: 24px; line-height: 1.8; letter-spacing: 0.03em; }
+        .category-link { display: inline-flex; align-items: center; gap: 10px; color: var(--gold); font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; }
+        .category-link svg { width: 16px; height: 16px; transition: transform 0.3s; }
+        .category-card:hover .category-link svg { transform: translateX(6px); }
+
+        /* Specs Grid */
+        .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+        .specs-image { height: 500px; background-size: cover; background-position: center; border-radius: 2px; }
+        .specs-content h3 { font-size: 42px; color: var(--white); margin-bottom: 24px; line-height: 1.05; }
+        .specs-content > p { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 300; color: var(--silver); line-height: 2; margin-bottom: 40px; letter-spacing: 0.03em; }
+        .specs-list { list-style: none; }
+        .specs-list li { display: flex; align-items: flex-start; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--graphite); }
+        .specs-list li:last-child { border-bottom: none; }
+        .spec-icon { width: 28px; height: 28px; background: var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .spec-icon svg { width: 14px; height: 14px; fill: var(--carbon); stroke: var(--carbon); stroke-width: 2; }
+        .spec-text strong { display: block; font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; letter-spacing: 0.05em; }
+        .spec-text span { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 300; color: var(--silver); line-height: 1.7; }
+
+        /* Product Cards */
+        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .product-card { background: var(--carbon-light); border: 1px solid var(--graphite); overflow: hidden; transition: all 0.3s; cursor: pointer; }
+        .product-card:hover { border-color: var(--gold); }
+        .product-card-image { height: 240px; background-size: cover; background-position: center; }
+        .product-card-content { padding: 28px; }
+        .product-card-title { font-size: 22px; color: var(--white); margin-bottom: 8px; }
+        .product-card-desc { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 300; color: var(--silver); line-height: 1.7; margin-bottom: 16px; }
+        .product-card-price { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); }
+        .product-card-price span { font-size: 14px; color: var(--steel); }
+
+        /* Kit Components Grid */
+        .kit-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+        .kit-item { background: var(--carbon-light); padding: 32px 20px; text-align: center; border: 1px solid var(--graphite); }
+        .kit-item-image { height: 80px; background-size: contain; background-repeat: no-repeat; background-position: center; margin-bottom: 16px; }
+        .kit-item-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 500; color: var(--platinum); letter-spacing: 0.1em; text-transform: uppercase; }
+
+        /* Pricing Cards */
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .pricing-card { background: var(--carbon-light); border: 1px solid var(--graphite); padding: 48px 36px; text-align: center; position: relative; }
+        .pricing-card.featured { border-color: var(--gold); }
+        .pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--carbon); padding: 6px 16px; font-family: 'Rajdhani', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
+        .pricing-card h3 { font-size: 20px; color: var(--white); margin-bottom: 16px; }
+        .pricing-amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: var(--gold); margin-bottom: 16px; }
+        .pricing-card p { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 300; color: var(--silver); line-height: 1.7; }
+
+        /* Bin Access Grid */
+        .access-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .access-card { background: var(--carbon-light); border: 1px solid var(--graphite); overflow: hidden; text-align: center; }
+        .access-card-image { height: 320px; background-size: cover; background-position: center; }
+        .access-card h3 { font-size: 22px; color: var(--white); margin: 24px 24px 12px; }
+        .access-card p { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 300; color: var(--silver); line-height: 1.7; margin: 0 24px 24px; }
+
+        /* Video Container */
+        .video-container { position: relative; width: 100%; max-width: 900px; margin: 40px auto 0; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* CTA Section */
+        .cta-section { padding: 120px 0; background: var(--carbon-light); text-align: center; border-top: 1px solid var(--graphite); }
+        .cta-section h2 { font-size: 46px; color: var(--white); margin-bottom: 20px; line-height: 1.1; }
+        .cta-section p { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 300; color: var(--silver); margin-bottom: 44px; letter-spacing: 0.05em; }
+        .cta-buttons { display: flex; justify-content: center; gap: 16px; }
+
+        /* Footer */
+        footer { background: var(--carbon); padding: 100px 60px 50px; border-top: 1px solid var(--graphite); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 80px; }
+        .footer-brand p { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 300; color: var(--steel); line-height: 1.9; margin-top: 24px; }
+        .footer-column h4 { font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 14px; }
+        .footer-column a { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 300; color: var(--steel); text-decoration: none; cursor: pointer; transition: color 0.3s; }
+        .footer-column a:hover { color: var(--white); }
+        .footer-bottom { margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--graphite); text-align: center; }
+        .footer-bottom p { font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 300; color: var(--steel); letter-spacing: 0.1em; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container { padding: 0 40px; }
+            nav { padding: 0 40px; }
+            .hero-split { grid-template-columns: 1fr; }
+            .hero-content-side { padding: 80px 40px; }
+            .hero-image-side { min-height: 400px; }
+            .hero-image-side::before { background: linear-gradient(0deg, var(--carbon) 0%, transparent 50%); }
+            .hero-full::before { background: linear-gradient(0deg, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.6) 50%, rgba(26,26,26,0.3) 100%); }
+            .hero-content { max-width: 100%; }
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .specs-grid { grid-template-columns: 1fr; gap: 60px; }
+            .kit-grid { grid-template-columns: repeat(3, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+            nav { padding: 0 24px; }
+            .nav-center, .nav-phone { display: none; }
+            .hamburger { display: flex; }
+            .hero-content-side { padding: 60px 24px; }
+            .hero-buttons { flex-direction: column; }
+            .hero-full { min-height: 90vh; }
+            .stats-bar { flex-direction: column; gap: 24px; }
+            .category-grid { grid-template-columns: 1fr; }
+            .product-grid { grid-template-columns: 1fr; }
+            .kit-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .access-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .section { padding: 80px 0; }
+            footer { padding: 60px 24px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" onclick="showPage('home')">
+            <div class="logo-mark">
+                <div class="piece piece-1"></div>
+                <div class="piece piece-2"></div>
+                <div class="piece piece-3"></div>
+                <div class="piece piece-4"></div>
+            </div>
+            <div class="logo-text">
+                <div class="logo-biolux"><span class="bio">BIO</span><span class="lux">LUX</span></div>
+                <div class="logo-built">BUILT</div>
+            </div>
+        </div>
+        <ul class="nav-center">
+            <li><a onclick="showPage('fencing')">Fencing</a></li>
+            <li><a onclick="showPage('decking')">Decking</a></li>
+            <li><a onclick="showPage('gates')">Gates</a></li>
+            <li><a onclick="showPage('cladding')">Cladding</a></li>
+            <li><a onclick="showPage('bins')">Bins</a></li>
+            <li><a onclick="showPage('about')">About</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="tel:+18185648441" class="nav-phone">(818) 564-8441</a>
+            <a href="#" class="nav-cta">Get Quote</a>
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a onclick="showPage('fencing'); toggleMobileMenu()">Fencing</a></li>
+            <li><a onclick="showPage('decking'); toggleMobileMenu()">Decking</a></li>
+            <li><a onclick="showPage('gates'); toggleMobileMenu()">Gates</a></li>
+            <li><a onclick="showPage('cladding'); toggleMobileMenu()">Cladding</a></li>
+            <li><a onclick="showPage('bins'); toggleMobileMenu()">Bins</a></li>
+            <li><a onclick="showPage('about'); toggleMobileMenu()">About</a></li>
+        </ul>
+    </div>
+
+    <!-- ===== HOME PAGE ===== -->
+    <div id="home" class="page active">
+        <div class="hero-full" style="background-image: url('images/WhatsApp-Image-2024-07-16-at-19_38_44_fc0f7651_jpg.webp');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Architectural WPC Systems</span>
+                    <h1 class="hero-title">Engineered for<br>Extreme Durability.</h1>
+                    <p class="hero-subtitle">Architectural-grade WPC fencing system designed for permanence and performance. Precision materials. Zero maintenance. Built to outlast.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="showPage('fencing')">Explore Systems</button>
+                        <button class="btn-outline">Request Quote</button>
+                    </div>
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Year Warranty</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">Zero</div>
+                            <div class="stat-label">Maintenance</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Recyclable</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Overview -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Product Systems</span>
+                    <h2 class="section-title">Complete Outdoor Solutions</h2>
+                    <p class="section-subtitle">From privacy fencing to stunning decks, every BioLux product combines the warmth of natural wood with engineered durability.</p>
+                </div>
+                
+                <div class="category-grid">
+                    <div class="category-card" onclick="showPage('fencing')">
+                        <div class="category-image" style="background-image: url('images/WhatsApp-Image-2024-07-16-at-19_38_44_fc0f7651_jpg.webp');">
+                            <span class="category-badge">Flagship</span>
+                        </div>
+                        <div class="category-info">
+                            <h3>WPC Fencing</h3>
+                            <p>Engineered composite horizontal board system. Full privacy, semi-privacy, and slat configurations available.</p>
+                            <span class="category-link">Explore System <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="showPage('decking')">
+                        <div class="category-image" style="background-image: url('images/WPC_decking.png');"></div>
+                        <div class="category-info">
+                            <h3>WPC Decking</h3>
+                            <p>Splinter-free, slip-resistant deck boards. Hidden fastening system for a seamless, screw-free surface.</p>
+                            <span class="category-link">Explore System <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="showPage('bins')">
+                        <div class="category-image" style="background-image: url('images/Asphalt_Background.png');"></div>
+                        <div class="category-info">
+                            <h3>Bin Enclosures</h3>
+                            <p>Steel-framed enclosures with WPC panels. Hide trash bins while maintaining curb appeal.</p>
+                            <span class="category-link">View Options <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why BioLux -->
+        <section class="section section-medium">
+            <div class="container">
+                <div class="specs-grid">
+                    <div class="specs-image" style="background-image: url('images/hero_photo_01.jpg');"></div>
+                    <div class="specs-content">
+                        <span class="section-label">Engineered Composite</span>
+                        <h3>Built to Outlast.</h3>
+                        <p>Smart material technology meets precision engineering. 100 MPH wind resistant. Zero maintenance. Stainless hardware—never seen, never corrodes.</p>
+                        <ul class="specs-list">
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>25-Year Structural Warranty</strong>
+                                    <span>Industry-leading protection against defects, fading, and material degradation.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Precision Fastening System</strong>
+                                    <span>Stainless steel frame. Hidden hardware. Engineered for permanence.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Termite & Element Proof</strong>
+                                    <span>Impervious to pests, moisture, and UV degradation.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>We Build Systems.<br>Not Just Fencing.</h2>
+                <p>Request a consultation or visit our Gardena showroom to experience the difference.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary">Request a Quote</button>
+                    <button class="btn-outline">Visit Showroom</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== FENCING PAGE ===== -->
+    <div id="fencing" class="page">
+        <div class="hero-textured" style="background-image: url('images/Rock_Gravel.jpeg');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Architectural WPC Systems</span>
+                    <h1 class="hero-title">Engineered for<br>Extreme Durability.</h1>
+                    <p class="hero-subtitle">Architectural-grade WPC fencing system designed for permanence and performance. Precision materials. Zero maintenance. Built to outlast.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline" onclick="showPage('super-kit')">View Super Kit</button>
+                    </div>
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <div class="stat-number">37</div>
+                            <div class="stat-label">Miles Installed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">Zero</div>
+                            <div class="stat-label">Callbacks</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Year Warranty</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fencing Systems -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Fencing Systems</span>
+                    <h2 class="section-title">Choose Your Style</h2>
+                    <p class="section-subtitle">Six distinct systems engineered for California living. Each built on our precision aluminum frame with hidden stainless hardware.</p>
+                </div>
+                
+                <div class="category-grid">
+                    <div class="category-card" onclick="showPage('wpc-fencing')">
+                        <div class="category-image" style="background-image: url('images/WhatsApp-Image-2024-07-16-at-19_38_44_fc0f7651_jpg.webp');">
+                            <span class="category-badge">Flagship</span>
+                        </div>
+                        <div class="category-info">
+                            <h3>WPC Fencing</h3>
+                            <p>Engineered composite horizontal board system. Full privacy, semi-privacy, and slat configurations available.</p>
+                            <span class="category-link">Explore System <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="showPage('asa-fencing')">
+                        <div class="category-image" style="background-image: url('images/hero_photo_01.jpg');">
+                            <span class="category-badge">Premium</span>
+                        </div>
+                        <div class="category-info">
+                            <h3>ASA Fencing</h3>
+                            <p>Advanced co-extrusion technology. Superior UV resistance for extreme sun exposure applications.</p>
+                            <span class="category-link">Explore System <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="showPage('fence-carving')">
+                        <div class="category-image" style="background-image: url('images/hero_photo_02.jpg');"></div>
+                        <div class="category-info">
+                            <h3>Decorative Accents</h3>
+                            <p>Laser-cut architectural panels. Six precision patterns for customized light filtration.</p>
+                            <span class="category-link">View Patterns <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="showPage('slat-wall')">
+                        <div class="category-image" style="background-image: url('images/hero_photo_02.jpg');"></div>
+                        <div class="category-info">
+                            <h3>Slat Wall</h3>
+                            <p>Modern vertical fluted panels with precision shadow lines. Contemporary architectural aesthetic.</p>
+                            <span class="category-link">Explore System <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="showPage('super-kit')">
+                        <div class="category-image" style="background-image: url('images/hero_photo_01.jpg');">
+                            <span class="category-badge">Complete</span>
+                        </div>
+                        <div class="category-info">
+                            <h3>Super Kit</h3>
+                            <p>Complete installation package. Posts, boards, rails, hardware—everything precision-matched.</p>
+                            <span class="category-link">View Kits <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="showPage('post-styles')">
+                        <div class="category-image" style="background-image: url('images/hero_photo_03.jpg');"></div>
+                        <div class="category-info">
+                            <h3>Posts & Hardware</h3>
+                            <p>Heavy-duty aluminum structural system. Powder-coated for lifetime corrosion resistance.</p>
+                            <span class="category-link">View Options <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why BioLux Fencing -->
+        <section class="section section-medium">
+            <div class="container">
+                <div class="specs-grid">
+                    <div class="specs-image" style="background-image: url('images/hero_photo_01.jpg');"></div>
+                    <div class="specs-content">
+                        <span class="section-label">Engineered Composite</span>
+                        <h3>Built to Outlast.</h3>
+                        <p>Smart material technology meets precision engineering. 100 MPH wind resistant. Zero maintenance. Stainless hardware—never seen, never corrodes.</p>
+                        <ul class="specs-list">
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>25-Year Structural Warranty</strong>
+                                    <span>Industry-leading protection against defects, fading, and material degradation.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Precision Fastening System</strong>
+                                    <span>Stainless steel frame. Hidden hardware. Engineered for permanence.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Termite & Element Proof</strong>
+                                    <span>Impervious to pests, moisture, and UV degradation.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>95% Recycled Materials</strong>
+                                    <span>Sustainable composition without compromising performance.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Need Help Choosing?</h2>
+                <p>Our team can help you select the perfect system for your property. Free consultations available.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+18185648441" class="btn-primary">Call (818) 564-8441</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== WPC FENCING DETAIL ===== -->
+    <div id="wpc-fencing" class="page">
+        <div class="hero-full" style="background-image: url('images/WhatsApp-Image-2024-07-16-at-19_38_44_fc0f7651_jpg.webp');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Flagship Collection</span>
+                    <h1 class="hero-title">WPC Fencing<br>System</h1>
+                    <p class="hero-subtitle">Our signature horizontal board system. Full privacy, semi-privacy, and slat configurations. Engineered composite that looks like wood but lasts forever.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline" onclick="showPage('fencing')">← All Fencing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ASA FENCING DETAIL ===== -->
+    <div id="asa-fencing" class="page">
+        <div class="hero-full" style="background-image: url('images/hero_photo_02.jpg');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Premium UV Protection</span>
+                    <h1 class="hero-title">ASA Fencing<br>System</h1>
+                    <p class="hero-subtitle">Enhanced with ASA cap layer for superior fade resistance. Ideal for sun-exposed installations. 25-year color warranty.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline" onclick="showPage('fencing')">← All Fencing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FENCE CARVING DETAIL ===== -->
+    <div id="fence-carving" class="page">
+        <div class="hero-full" style="background-image: url('images/hero_photo_01.jpg');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Decorative Patterns</span>
+                    <h1 class="hero-title">Fence Carving<br>Accents</h1>
+                    <p class="hero-subtitle">Laser-cut decorative bands that add architectural detail to any fence. Six patterns available. Mix and match with solid panels.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline" onclick="showPage('fencing')">← All Fencing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SLAT WALL DETAIL ===== -->
+    <div id="slat-wall" class="page">
+        <div class="hero-full" style="background-image: url('images/hero_photo_01.jpg');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Contemporary Design</span>
+                    <h1 class="hero-title">Slat Wall<br>System</h1>
+                    <p class="hero-subtitle">Modern vertical fluted panels with precision shadow lines. Perfect for accent walls, pool surrounds, and contemporary architecture.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline" onclick="showPage('fencing')">← All Fencing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== POST STYLES DETAIL ===== -->
+    <div id="post-styles" class="page">
+        <div class="hero-full" style="background-image: url('images/Rock_Gravel.jpeg');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Structural Hardware</span>
+                    <h1 class="hero-title">Posts &<br>Hardware</h1>
+                    <p class="hero-subtitle">Heavy-duty aluminum posts in round and square profiles. Powder-coated black or silver. All stainless fasteners included.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline" onclick="showPage('fencing')">← All Fencing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SUPER KIT PAGE ===== -->
+    <div id="super-kit" class="page">
+        <div class="hero-full" style="background-image: url('images/WhatsApp-Image-2024-07-16-at-19_38_44_fc0f7651_jpg.webp');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Complete DIY Solution</span>
+                    <h1 class="hero-title">Everything You Need.<br>One Box.</h1>
+                    <p class="hero-subtitle">Professional-grade fence kits with all hardware included. No hunting for parts. No compatibility issues. Just build.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline" onclick="showPage('fencing')">← All Fencing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kit Configurations -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Choose Your Style</span>
+                    <h2 class="section-title">Kit Configurations</h2>
+                    <p class="section-subtitle">Four panel styles to match your aesthetic. All kits include the same premium hardware and components.</p>
+                </div>
+                
+                <div class="product-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="product-card">
+                        <div class="product-card-image" style="background-image: url('images/WhatsApp-Image-2024-07-16-at-19_38_44_fc0f7651_jpg.webp');"></div>
+                        <div class="product-card-content">
+                            <h3 class="product-card-title">Semi-Privacy</h3>
+                            <p class="product-card-desc">Horizontal slat design with spacing for airflow.</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background-image: url('images/hero_photo_02.jpg');"></div>
+                        <div class="product-card-content">
+                            <h3 class="product-card-title">Decorative Band</h3>
+                            <p class="product-card-desc">Full privacy with wave carving accent band.</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background-image: url('images/hero_photo_01.jpg');"></div>
+                        <div class="product-card-content">
+                            <h3 class="product-card-title">Full Privacy</h3>
+                            <p class="product-card-desc">Solid horizontal panels. Maximum privacy.</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background-image: url('images/Wall_Cladding_jpg.webp');"></div>
+                        <div class="product-card-content">
+                            <h3 class="product-card-title">Top Accent</h3>
+                            <p class="product-card-desc">Privacy panels with decorative slat top.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's Included -->
+        <section class="section section-medium">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">What's in the Box</span>
+                    <h2 class="section-title">Every Component Included</h2>
+                    <p class="section-subtitle">No trips to the hardware store. Each kit contains everything needed for one 6ft panel section.</p>
+                </div>
+                
+                <div class="kit-grid">
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background-image: url('images/WhatsApp-Image-2024-07-16-at-19_38_44_fc0f7651_jpg.webp');"></div>
+                        <div class="kit-item-label">Fence Panels</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background-image: url('images/hero_photo_02.jpg');"></div>
+                        <div class="kit-item-label">Aluminum Post</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background-image: url('images/hero_photo_01.jpg');"></div>
+                        <div class="kit-item-label">Top & Bottom Rail</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background-image: url('images/Wall_Cladding_jpg.webp');"></div>
+                        <div class="kit-item-label">Side Cover</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background-image: url('images/hero_photo_03.jpg');"></div>
+                        <div class="kit-item-label">Post Cap</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background-image: url('images/Rock_Gravel.jpeg');"></div>
+                        <div class="kit-item-label">Post Base</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background-image: url('images/Asphalt_Background.png');"></div>
+                        <div class="kit-item-label">Post Bracket</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background-image: url('images/WPC_decking.png');"></div>
+                        <div class="kit-item-label">Post Connector</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background-image: url('images/NIce_Slat_House.png');"></div>
+                        <div class="kit-item-label">Post Sleeve</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-item-image" style="background: var(--graphite); display: flex; align-items: center; justify-content: center;"></div>
+                        <div class="kit-item-label">Hardware Pack</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Pricing</span>
+                    <h2 class="section-title">Kit Pricing</h2>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>4ft Panel Kit</h3>
+                        <div class="pricing-amount">$280</div>
+                        <p>Ideal for garden borders and decorative sections</p>
+                    </div>
+                    <div class="pricing-card featured">
+                        <span class="pricing-badge">Most Popular</span>
+                        <h3>6ft Panel Kit</h3>
+                        <div class="pricing-amount">$320</div>
+                        <p>Standard privacy height for residential fencing</p>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>8ft Panel Kit</h3>
+                        <div class="pricing-amount">$420</div>
+                        <p>Maximum privacy for commercial and estate properties</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Build?</h2>
+                <p>Calculate how many kits you need. Our team can help with measurements and planning.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+18185648441" class="btn-primary">Call (818) 564-8441</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== BINS PAGE ===== -->
+    <div id="bins" class="page">
+        <div class="hero-textured" style="background-image: url('images/Asphalt_Background.png');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Bin Enclosures</span>
+                    <h1 class="hero-title">Hide the Ugly.<br>Keep the Curb Appeal.</h1>
+                    <p class="hero-subtitle">Premium steel and WPC bin enclosures engineered to match your fence system. Top-lift or front-door access. Gas-spring assisted lids. Magnetic latches.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline">View Options</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bin Products -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Enclosure Options</span>
+                    <h2 class="section-title">Choose Your Size</h2>
+                    <p class="section-subtitle">Modular design lets you connect units as needed. Each enclosure fits standard 64-gallon wheelie bins.</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-card-image" style="background-image: url('images/Asphalt_Background.png');"></div>
+                        <div class="product-card-content">
+                            <h3 class="product-card-title">Single Bin</h3>
+                            <p class="product-card-desc">Perfect for small spaces or adding to an existing setup.</p>
+                            <div class="product-card-price">$450</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background-image: url('images/Asphalt_Background.png');"></div>
+                        <div class="product-card-content">
+                            <h3 class="product-card-title">2-Bin Enclosure</h3>
+                            <p class="product-card-desc">Trash and recycling. The most popular configuration.</p>
+                            <div class="product-card-price">$650</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background-image: url('images/Asphalt_Background.png');"></div>
+                        <div class="product-card-content">
+                            <h3 class="product-card-title">3-Bin Enclosure</h3>
+                            <p class="product-card-desc">Trash, recycling, and green waste. Full coverage.</p>
+                            <div class="product-card-price">$850</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section section-medium">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Dual Access Design</span>
+                    <h2 class="section-title">Top Lift. Front Door. Your Choice.</h2>
+                </div>
+                
+                <div class="access-grid">
+                    <div class="access-card">
+                        <div class="access-card-image" style="background-image: url('images/Asphalt_Background.png');"></div>
+                        <h3>Top-Lift Access</h3>
+                        <p>Gas-spring assisted lid opens with the bin lid for easy drop-in. Chain keeps lid secure when open.</p>
+                    </div>
+                    <div class="access-card">
+                        <div class="access-card-image" style="background-image: url('images/Asphalt_Background.png');"></div>
+                        <h3>Front Door Access</h3>
+                        <p>Full-swing door with magnetic latch. Roll bins in and out on collection day without lifting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specs -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="specs-grid">
+                    <div class="specs-image" style="background-image: url('images/Asphalt_Background.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                    <div class="specs-content">
+                        <span class="section-label">Specifications</span>
+                        <h3>Dimensions</h3>
+                        <ul class="specs-list">
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Height: 50 inches</strong>
+                                    <span>Width: 37 inches per unit. Depth: 37 inches.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Fits Bins Up To 64 Gallon</strong>
+                                    <span>Standard wheelie bin compatible.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Powder-Coated Steel Frame</strong>
+                                    <span>WPC composite panels. Teak accent door standard.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Video -->
+        <section class="section section-medium">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Easy Assembly</span>
+                    <h2 class="section-title">Watch the Installation</h2>
+                    <p class="section-subtitle">No special tools required. Most installations complete in under 30 minutes.</p>
+                </div>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/jjUGyDgaxlM" title="Bin Enclosure Installation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Hide Those Bins?</h2>
+                <p>Get a quote for your enclosure. We'll help you choose the right size and color.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+18185648441" class="btn-primary">Call (818) 564-8441</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== DECKING PAGE ===== -->
+    <div id="decking" class="page">
+        <div class="hero-full" style="background-image: url('images/WPC_decking.png');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">WPC Deck Systems</span>
+                    <h1 class="hero-title">Walk Barefoot.<br>Every Day.</h1>
+                    <p class="hero-subtitle">Splinter-free, slip-resistant decking engineered to stay cool underfoot. Hidden fasteners for a seamless look. Built to handle any climate.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline">View Colors</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Coming Soon</span>
+                    <h2 class="section-title">Decking Images</h2>
+                    <p class="section-subtitle">Send decking product photography to build out this section.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== GATES PAGE ===== -->
+    <div id="gates" class="page">
+        <div class="hero-full" style="background-image: url('images/NIce_Slat_House.png');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Gate Systems</span>
+                    <h1 class="hero-title">Complete the<br>Perimeter.</h1>
+                    <p class="hero-subtitle">Pedestrian and driveway gates engineered to match your fence. Manual or automated operation. Matching WPC infill panels.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline">View Options</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Coming Soon</span>
+                    <h2 class="section-title">Gate Images</h2>
+                    <p class="section-subtitle">Send gate product photography to build out this section.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== CLADDING PAGE ===== -->
+    <div id="cladding" class="page">
+        <div class="hero-full" style="background-image: url('images/Wall_Cladding_jpg.webp');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Wall Cladding</span>
+                    <h1 class="hero-title">Transform<br>Any Surface.</h1>
+                    <p class="hero-subtitle">Interior and exterior wall panels with the warmth of natural wood. Moisture-resistant core. Easy clip installation system.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Request Quote</button>
+                        <button class="btn-outline">View Colors</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Coming Soon</span>
+                    <h2 class="section-title">Cladding Images</h2>
+                    <p class="section-subtitle">Send cladding product photography to build out this section.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== ABOUT PAGE ===== -->
+    <div id="about" class="page">
+        <div class="hero-full" style="background-image: url('images/hero_photo_03.jpg');">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">About BioLux</span>
+                    <h1 class="hero-title">Precision Materials.<br>Architectural Permanence.</h1>
+                    <p class="hero-subtitle">37 miles installed. Zero callbacks. 25-year warranty on every project. We don't sell fencing — we build systems.</p>
+                    <div class="hero-buttons">
+                        <a href="tel:+18185648441" class="btn-primary">Call Us</a>
+                        <button class="btn-outline">Visit Showroom</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section section-dark">
+            <div class="container">
+                <div class="specs-grid">
+                    <div class="specs-content">
+                        <span class="section-label">Our Story</span>
+                        <h3>Why BioLux?</h3>
+                        <p>We started with a simple idea: outdoor products should be beautiful AND maintenance-free. Two decades later, we're still proving it's possible.</p>
+                        <ul class="specs-list">
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Gardena Showroom</strong>
+                                    <span>848 W 168th St, Gardena, CA 90247. See our full product line in person.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Professional Installation</strong>
+                                    <span>Full-service installation available throughout Southern California.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>DIY Support</strong>
+                                    <span>Complete installation guides, video tutorials, and phone support.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="specs-image" style="background: linear-gradient(135deg, var(--graphite) 0%, var(--carbon) 100%);"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== WARRANTY PAGE ===== -->
+    <div id="warranty" class="page">
+        <section class="section section-dark" style="padding-top: 140px;">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Our Promise</span>
+                    <h1 class="section-title" style="font-size: clamp(40px, 5vw, 56px);">Industry-Leading Warranty</h1>
+                    <p class="section-subtitle" style="max-width: 600px; margin: 0 auto;">We stand behind every product we sell with comprehensive warranty coverage that gives you peace of mind for decades to come.</p>
+                </div>
+                
+                <!-- Warranty Badge -->
+                <div style="display: flex; justify-content: center; margin: 48px 0;">
+                    <div style="display: flex; align-items: center; gap: 20px; background: var(--carbon-light); border: 1px solid var(--gold); padding: 24px 40px;">
+                        <div style="width: 56px; height: 56px; background: var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: var(--carbon);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--white);">25-Year Limited Warranty</div>
+                            <div style="font-family: 'Rajdhani', sans-serif; font-size: 12px; color: var(--silver); letter-spacing: 0.1em; text-transform: uppercase;">Residential Applications</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warranty Coverage Cards -->
+        <section class="section section-medium">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">What's Covered</span>
+                    <h2 class="section-title">Comprehensive Protection</h2>
+                </div>
+                
+                <div class="product-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="product-card" style="text-align: center; padding: 40px 24px;">
+                        <div style="width: 60px; height: 60px; margin: 0 auto 20px; background: var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: var(--carbon); stroke-width: 2;"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+                        </div>
+                        <h3 style="font-size: 20px; color: var(--white); margin-bottom: 12px;">Fade Resistance</h3>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 13px; color: var(--silver); line-height: 1.7;">Protected against excessive color fading beyond normal weathering.</p>
+                    </div>
+                    <div class="product-card" style="text-align: center; padding: 40px 24px;">
+                        <div style="width: 60px; height: 60px; margin: 0 auto 20px; background: var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: var(--carbon); stroke-width: 2;"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 style="font-size: 20px; color: var(--white); margin-bottom: 12px;">Structural Integrity</h3>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 13px; color: var(--silver); line-height: 1.7;">Covered against splitting, cracking, rotting, or structural failure.</p>
+                    </div>
+                    <div class="product-card" style="text-align: center; padding: 40px 24px;">
+                        <div style="width: 60px; height: 60px; margin: 0 auto 20px; background: var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: var(--carbon); stroke-width: 2;"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <h3 style="font-size: 20px; color: var(--white); margin-bottom: 12px;">Stain Resistance</h3>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 13px; color: var(--silver); line-height: 1.7;">Protection against permanent staining from common substances.</p>
+                    </div>
+                    <div class="product-card" style="text-align: center; padding: 40px 24px;">
+                        <div style="width: 60px; height: 60px; margin: 0 auto 20px; background: var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: var(--carbon); stroke-width: 2;"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                        </div>
+                        <h3 style="font-size: 20px; color: var(--white); margin-bottom: 12px;">Transferable</h3>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 13px; color: var(--silver); line-height: 1.7;">Warranty transfers to new homeowner with proof of purchase.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warranty Table -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Coverage by Product</span>
+                    <h2 class="section-title">Warranty Terms</h2>
+                </div>
+                
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1px; background: var(--graphite);">
+                        <div style="background: var(--carbon-light); padding: 16px 20px; font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase;">Product</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; text-align: center;">Residential</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; text-align: center;">Commercial</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; text-align: center;">Transferable</div>
+                        
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--white); font-size: 14px;">WPC Fence Systems</div>
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--platinum); text-align: center;">25 Years</div>
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--platinum); text-align: center;">10 Years</div>
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--platinum); text-align: center;">Yes</div>
+                        
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--white); font-size: 14px;">Composite Decking</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--platinum); text-align: center;">25 Years</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--platinum); text-align: center;">10 Years</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--platinum); text-align: center;">Yes</div>
+                        
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--white); font-size: 14px;">Designer Gates</div>
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--platinum); text-align: center;">10 Years</div>
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--platinum); text-align: center;">5 Years</div>
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--platinum); text-align: center;">Yes</div>
+                        
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--white); font-size: 14px;">Wall Cladding</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--platinum); text-align: center;">20 Years</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--platinum); text-align: center;">10 Years</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--platinum); text-align: center;">Yes</div>
+                        
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--white); font-size: 14px;">Bin Enclosures</div>
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--platinum); text-align: center;">15 Years</div>
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--platinum); text-align: center;">7 Years</div>
+                        <div style="background: var(--carbon); padding: 16px 20px; color: var(--platinum); text-align: center;">Yes</div>
+                        
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--white); font-size: 14px;">Aluminum Hardware</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--platinum); text-align: center;">Lifetime</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--platinum); text-align: center;">25 Years</div>
+                        <div style="background: var(--carbon-light); padding: 16px 20px; color: var(--platinum); text-align: center;">Yes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terms & Conditions -->
+        <section class="section section-medium">
+            <div class="container">
+                <div class="specs-grid">
+                    <div class="specs-content">
+                        <span class="section-label">Terms & Conditions</span>
+                        <h3>What's Covered</h3>
+                        <p>Our warranty is designed to provide you with confidence in your purchase.</p>
+                        <ul class="specs-list">
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Structural Performance</strong>
+                                    <span>Covers cracking, splitting, breaking, delamination, abnormal swelling caused by manufacturing defects.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Fade Resistance</strong>
+                                    <span>Excessive color fading beyond normal weathering (color change exceeding 5 Delta E units).</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="spec-text">
+                                    <strong>Stain Resistance</strong>
+                                    <span>Permanent staining that cannot be removed with recommended cleaning methods.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="specs-content">
+                        <span class="section-label" style="color: var(--steel);">Exclusions</span>
+                        <h3 style="color: var(--silver);">What's Not Covered</h3>
+                        <p>Please review the following exclusions.</p>
+                        <ul class="specs-list">
+                            <li>
+                                <div class="spec-icon" style="background: var(--graphite);"><svg viewBox="0 0 24 24" style="stroke: var(--silver);"><path d="M6 18L18 6M6 6l12 12"/></svg></div>
+                                <div class="spec-text">
+                                    <strong style="color: var(--silver);">Improper Installation</strong>
+                                    <span>Products must be installed per BioLux guidelines. Inspect before installation.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon" style="background: var(--graphite);"><svg viewBox="0 0 24 24" style="stroke: var(--silver);"><path d="M6 18L18 6M6 6l12 12"/></svg></div>
+                                <div class="spec-text">
+                                    <strong style="color: var(--silver);">Normal Weathering</strong>
+                                    <span>Natural color variation and texture differences are not defects.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="spec-icon" style="background: var(--graphite);"><svg viewBox="0 0 24 24" style="stroke: var(--silver);"><path d="M6 18L18 6M6 6l12 12"/></svg></div>
+                                <div class="spec-text">
+                                    <strong style="color: var(--silver);">External Damage</strong>
+                                    <span>Acts of God, vandalism, chemical exposure, mold/mildew, or labor costs.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Claim Process -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Filing a Claim</span>
+                    <h2 class="section-title">How to Make a Warranty Claim</h2>
+                </div>
+                
+                <div class="product-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div style="text-align: center; padding: 24px;">
+                        <div style="width: 48px; height: 48px; margin: 0 auto 16px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold);">1</div>
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 8px; letter-spacing: 0.05em;">Contact Us</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 13px; color: var(--silver); line-height: 1.7;">Email warranty@bioluxbuilt.com with your proof of purchase.</p>
+                    </div>
+                    <div style="text-align: center; padding: 24px;">
+                        <div style="width: 48px; height: 48px; margin: 0 auto 16px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold);">2</div>
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 8px; letter-spacing: 0.05em;">Document Issue</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 13px; color: var(--silver); line-height: 1.7;">Include clear photos and description of the problem.</p>
+                    </div>
+                    <div style="text-align: center; padding: 24px;">
+                        <div style="width: 48px; height: 48px; margin: 0 auto 16px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold);">3</div>
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 8px; letter-spacing: 0.05em;">Review</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 13px; color: var(--silver); line-height: 1.7;">We'll review your claim and may request samples or inspection.</p>
+                    </div>
+                    <div style="text-align: center; padding: 24px;">
+                        <div style="width: 48px; height: 48px; margin: 0 auto 16px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold);">4</div>
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 8px; letter-spacing: 0.05em;">Resolution</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 13px; color: var(--silver); line-height: 1.7;">We'll repair, replace, or refund at our discretion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Questions About Your Warranty?</h2>
+                <p>Our team is here to help with any warranty questions or claims.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:warranty@bioluxbuilt.com" class="btn-primary">Email Warranty Team</a>
+                    <a href="tel:+18185648441" class="btn-outline">Call (818) 564-8441</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== FAQ PAGE ===== -->
+    <div id="faq" class="page">
+        <section class="section section-dark" style="padding-top: 140px;">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">Support Center</span>
+                    <h1 class="section-title" style="font-size: clamp(40px, 5vw, 56px);">Frequently Asked Questions</h1>
+                    <p class="section-subtitle" style="max-width: 600px; margin: 0 auto;">Find answers to common questions about our products, installation, warranties, and more.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- General Questions -->
+        <section class="section section-medium">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">General</span>
+                    <h2 class="section-title">About WPC Products</h2>
+                </div>
+                
+                <div style="max-width: 800px;">
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">What is WPC (Wood-Plastic Composite)?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">WPC stands for Wood-Plastic Composite, an engineered material made from a blend of wood fibers (typically 60%) and thermoplastic polymers (typically 35-40%). This creates a material that looks and feels like real wood but is significantly more durable, weather-resistant, and requires zero maintenance. It won't rot, warp, splinter, or need staining.</p>
+                    </div>
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">How does WPC compare to real wood?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">WPC offers several advantages over traditional wood: no rotting, warping, or splintering; no need for staining, sealing, or painting; resistant to termites and pests; won't fade as quickly; easier to clean; and backed by a 25-year warranty. The only trade-off is that WPC doesn't have the exact same texture as natural wood grain, though our products come very close.</p>
+                    </div>
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">What colors are available?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">Our standard color palette includes Teak (warm brown), Walnut (rich dark brown), Ashwood (light grey), and Charcoal (dark grey). Custom colors may be available for large orders. We recommend visiting our showroom to see samples in person, as colors can appear differently on screens.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Questions -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Installation</span>
+                    <h2 class="section-title">Installation & DIY</h2>
+                </div>
+                
+                <div style="max-width: 800px;">
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">Can I install BioLux products myself?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">Yes! Our Super Kit fencing systems are specifically designed for DIY installation. Each kit comes with all necessary hardware, detailed instructions, and access to video tutorials. Most homeowners with basic tools can install a fence panel in about 30 minutes. For decking and larger projects, we recommend professional installation, which we also offer.</p>
+                    </div>
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">Do you offer professional installation?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">Yes, we offer full-service professional installation throughout Southern California. Our installation team is factory-trained and follows strict quality standards. Professional installation also extends certain warranty protections. Contact us for a free installation quote.</p>
+                    </div>
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">What tools do I need for DIY installation?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">For fence installation, you'll need: a drill/driver, level, tape measure, post hole digger (for in-ground posts), and concrete mix if setting posts. All specialty hardware and fasteners are included in our kits. For decking, additional tools like a circular saw, jigsaw, and chalk line are helpful.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maintenance Questions -->
+        <section class="section section-medium">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Care & Maintenance</span>
+                    <h2 class="section-title">Cleaning & Upkeep</h2>
+                </div>
+                
+                <div style="max-width: 800px;">
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">How do I clean WPC products?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">Simple soap and water is usually all you need. For routine cleaning, just spray with a garden hose. For tougher stains, use a soft brush with mild dish soap and water. Avoid pressure washers above 1,500 PSI. Never use harsh chemicals, bleach, or abrasive cleaners as they can damage the surface.</p>
+                    </div>
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">Will WPC fade over time?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">All outdoor materials experience some color change due to UV exposure and weathering. Our products are formulated to minimize fading, and any color change is covered under our fade warranty (up to 5 Delta E units). Most customers find any lightening to be subtle and natural-looking over the 25-year warranty period.</p>
+                    </div>
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">Do I need to seal or stain WPC?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">No! One of the biggest advantages of WPC is that it never needs sealing, staining, or painting. The color is integrated throughout the material. This saves significant time and money compared to traditional wood, which typically needs re-staining every 2-3 years.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ordering Questions -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Ordering</span>
+                    <h2 class="section-title">Purchasing & Delivery</h2>
+                </div>
+                
+                <div style="max-width: 800px;">
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">How do I calculate how much material I need?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">For fencing, measure your total linear footage and divide by 6 (our standard panel width) to get the number of kits needed. For decking, calculate your square footage and add 10% for cuts and waste. We're happy to help with calculations — just call us with your measurements or send photos for a free estimate.</p>
+                    </div>
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">Do you deliver?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">Yes, we offer delivery throughout Southern California. Delivery fees vary by distance and order size. Large orders may qualify for free delivery. You can also pick up from our Gardena showroom. We'll coordinate delivery timing with you to ensure someone is available to receive the materials.</p>
+                    </div>
+                    <div class="faq-item" style="border-bottom: 1px solid var(--graphite); padding: 24px 0;">
+                        <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.03em;">Can I see samples before ordering?</h4>
+                        <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: var(--silver); line-height: 1.9;">Absolutely! We encourage visiting our Gardena showroom at 848 W 168th St to see full-size product displays and color samples in person. If you can't visit, we can mail small color samples for a nominal fee. Seeing the products in person is the best way to make your color selection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Still Have Questions?</h2>
+                <p>Our team is here to help. Contact us by phone, email, or visit our showroom.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+18185648441" class="btn-primary">Call (818) 564-8441</a>
+                    <a href="mailto:hello@bioluxbuilt.com" class="btn-outline">Email Us</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo" onclick="showPage('home')">
+                        <div class="logo-mark">
+                            <div class="piece piece-1"></div>
+                            <div class="piece piece-2"></div>
+                            <div class="piece piece-3"></div>
+                            <div class="piece piece-4"></div>
+                        </div>
+                        <div class="logo-text">
+                            <div class="logo-biolux"><span class="bio">BIO</span><span class="lux">LUX</span></div>
+                            <div class="logo-built">BUILT</div>
+                        </div>
+                    </div>
+                    <p>Premium WPC outdoor systems for modern California living. Sustainable materials, exceptional design, lifetime durability.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a onclick="showPage('fencing')">Fencing</a></li>
+                        <li><a onclick="showPage('decking')">Decking</a></li>
+                        <li><a onclick="showPage('gates')">Gates</a></li>
+                        <li><a onclick="showPage('cladding')">Cladding</a></li>
+                        <li><a onclick="showPage('bins')">Bin Enclosures</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Fencing</h4>
+                    <ul>
+                        <li><a onclick="showPage('wpc-fencing')">WPC Fencing</a></li>
+                        <li><a onclick="showPage('asa-fencing')">ASA Fencing</a></li>
+                        <li><a onclick="showPage('slat-wall')">Slat Wall</a></li>
+                        <li><a onclick="showPage('fence-carving')">Decorative Accents</a></li>
+                        <li><a onclick="showPage('super-kit')">Super Kit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a onclick="showPage('warranty')">Warranty</a></li>
+                        <li><a onclick="showPage('faq')">FAQ</a></li>
+                        <li><a onclick="showPage('about')">About Us</a></li>
+                        <li><a href="tel:+18185648441">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+18185648441">(818) 564-8441</a></li>
+                        <li><a href="mailto:hello@bioluxbuilt.com">hello@bioluxbuilt.com</a></li>
+                        <li><a>848 W 168th St</a></li>
+                        <li><a>Gardena, CA 90247</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 BioLux Built. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            document.querySelectorAll('.nav-center a').forEach(a => a.classList.remove('active'));
+            const navMap = {
+                'home': null,
+                'fencing': 'fencing',
+                'wpc-fencing': 'fencing',
+                'asa-fencing': 'fencing',
+                'fence-carving': 'fencing',
+                'slat-wall': 'fencing',
+                'super-kit': 'fencing',
+                'post-styles': 'fencing',
+                'decking': 'decking',
+                'gates': 'gates',
+                'cladding': 'cladding',
+                'bins': 'bins',
+                'about': 'about',
+                'warranty': 'warranty',
+                'faq': 'faq'
+            };
+            const navTarget = navMap[pageId];
+            if (navTarget) {
+                const activeLink = document.querySelector(`.nav-center a[onclick="showPage('${navTarget}')"]`);
+                if (activeLink) activeL
